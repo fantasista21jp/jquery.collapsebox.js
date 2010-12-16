@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* jquery-collapsebox-0 */
+#jquery-collapsebox-0 {
+  width: 300px;
+  margin: 0;
+  padding: 0px;
+  border: solid 1px #333333;
+  background: #EDEDED;
+}
+
+#jquery-collapsebox-0 .handle {
+  margin: 0;
+  padding: 10px 0;
+  background: #666666;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+#jquery-collapsebox-0 .contents {
+  margin: 0;
+  padding: 10px 0 15px 0;
+}
+#jquery-collapsebox-0 .contents p {
+  margin: 0;
+  padding: 0px 15px;
+  line-height: 150%;
+}
+
+
+/* jquery-collapsebox-1 */
+#jquery-collapsebox-1 {
+  width: 300px;
+  margin: 0;
+  padding: 0px;
+  border: solid 1px #333333;
+  background: #EDEDED;
+}
+
+#jquery-collapsebox-1 .handle {
+  margin: 0;
+  padding: 10px 0;
+  background: #666666;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+#jquery-collapsebox-1 .contents {
+  margin: 0;
+  padding: 10px 0 15px 0;
+}
+#jquery-collapsebox-1 .contents p {
+  margin: 0;
+  padding: 0px 15px;
+  line-height: 150%;
+}
+
+
+/* main-contents */
+div#main-contents {
+  margin: 0 0 0 0;
+  padding: 50px 0;
+  text-align: center;
+}
+
+div#main-contents p.box {
+  width: 800px;
+  margin: 30px auto 0 auto;
+  padding: 30px;
+  border: solid 20px #CC0000;
+  text-align: left;
+  line-height: 150%;
+}
+
+
+/*
+============================================================
+	clearfix
+============================================================
+*/
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearfix {
+    display: inline-block;
+}
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
