@@ -146,7 +146,7 @@
       } else {
         draggableObj = {
           stop: function(e, ui){
-            var cssObj = {};
+            var cssObj = getCorner();
             cssObj['position'] = 'fixed';
             $(this).css(cssObj);
           },
