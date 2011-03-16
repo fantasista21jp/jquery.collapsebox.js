@@ -44,7 +44,7 @@
           parent: $(this.parent().get(0))
         };
     if (!selectors.container.length || !selectors.button.length || !selectors.handle.length || !selectors.parent.length) return;
-    // Todo: BODYíºâ∫ÇÃóvëfÇ≈Ç»Ç¢Ç∆ÉoÉOÇÈ
+    // Todo: BODYÁõ¥‰∏ã„ÅÆË¶ÅÁ¥†„Åß„Å™„ÅÑ„Å®„Éê„Ç∞„Çã
     if (selectors.parent.context.nodeName.toUpperCase() != 'BODY') return;
 
     var open_height = 0,
@@ -117,7 +117,7 @@
             cssObj['position'] = 'fixed';
             $(this).css(cssObj);
           },
-          containment: 'html',
+          containment: 'window',
           refreshPositions: true,
           handle: selectors.handle,
           zIndex: (configs.zIndex + 1),
