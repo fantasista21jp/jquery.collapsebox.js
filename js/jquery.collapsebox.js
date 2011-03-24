@@ -5,8 +5,12 @@
  *
  * Depends Script:
  *	js/jquery.js (1.3.2~)
- *	[use draggable] ui.core.js
- *	[use draggable] ui.draggable.js
+ *	[use draggable (1.7.*)] ui.core.js
+ *	[use draggable (1.7.*)] ui.draggable.js
+ *	[use draggable (1.8.*)] ui.core.js
+ *	[use draggable (1.8.*)] ui.widget.js
+ *	[use draggable (1.8.*)] ui.mouse.js
+ *	[use draggable (1.8.*)] ui.draggable.js
  */
 
 (function($) {
@@ -107,7 +111,7 @@
 
     function setDraggable() {
       var draggableObj;
-      if (is_webkit === true) {
+      if (is_webkit === true && chkUiVersion() === false) {
         draggableObj = {
           start: function(e, ui){
             $(this).css('position', 'absolute');
@@ -117,7 +121,7 @@
             cssObj['position'] = 'fixed';
             $(this).css(cssObj);
           },
-          containment: 'window',
+          containment: 'html',
           refreshPositions: true,
           handle: selectors.handle,
           zIndex: (configs.zIndex + 1),
@@ -158,6 +162,14 @@
       }
       selectors.handle.css('cursor', 'move');
       selectors.container.draggable(draggableObj);
+    }
+
+    function chkUiVersion() {
+        var version = $.ui.version.split('.');
+        if (parseInt(version[0]) > 0 && parseInt(version[1]) > 7) {
+            return true;
+        }
+        return false;
     }
 
     function getCorner() {
