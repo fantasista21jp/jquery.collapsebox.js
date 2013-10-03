@@ -64,7 +64,7 @@
     function setPosition() {
       var cssObj = {};
       open_height = selectors.container.height();
-      close_height = selectors.handle.outerHeight({margin: true});
+      close_height = selectors.handle.outerHeight(true);
       if (open_height == close_height) {
         open_height = selectors.container.css({
           height: '',
@@ -103,8 +103,8 @@
       var $window = $(window),
           spaceX = configs.spaceX,
           spaceY = configs.spaceY;
-      if (configs.fulcrumX == 'right') spaceX = $window.width() - configs.spaceX - selectors.container.outerWidth();
-      if (configs.fulcrumY == 'bottom') spaceY = $window.height() - configs.spaceY - selectors.container.outerHeight();
+      if (configs.fulcrumX == 'right') spaceX = $window.width() - configs.spaceX - selectors.container.outerWidth(false);
+      if (configs.fulcrumY == 'bottom') spaceY = $window.height() - configs.spaceY - selectors.container.outerHeight(false);
       selectors.container.get(0).style.setExpression('left', 'eval('+spaceX+'+(document.body.scrollLeft||document.documentElement.scrollLeft))');
       selectors.container.get(0).style.setExpression('top', 'eval('+spaceY+'+(document.body.scrollTop||document.documentElement.scrollTop))');
     }
@@ -134,10 +134,10 @@
             var $window = $(window),
                 offset = selectors.container.offset();
             if (configs.fulcrumX == 'right') {
-              configs.spaceX = $window.width() - offset.left + $window.scrollLeft() - selectors.container.outerWidth();
+              configs.spaceX = $window.width() - offset.left + $window.scrollLeft() - selectors.container.outerWidth(false);
             }
             if (configs.fulcrumY == 'bottom') {
-              configs.spaceY = $window.height() - offset.top + $window.scrollTop() - selectors.container.outerHeight();
+              configs.spaceY = $window.height() - offset.top + $window.scrollTop() - selectors.container.outerHeight(false);
             }
             selectors.container.get(0).style.setExpression('left', 'eval('+(offset.left - $window.scrollLeft())+'+(document.body.scrollLeft||document.documentElement.scrollLeft))');
             selectors.container.get(0).style.setExpression('top', 'eval('+(offset.top - $window.scrollTop())+'+(document.body.scrollTop||document.documentElement.scrollTop))');
@@ -180,7 +180,7 @@
         position[configs.fulcrumX] = offset.left - $window.scrollLeft();
         position['right'] = 'auto';
       } else {
-        position[configs.fulcrumX] = $window.width() + $window.scrollLeft() - offset.left - selectors.container.outerWidth();
+        position[configs.fulcrumX] = $window.width() + $window.scrollLeft() - offset.left - selectors.container.outerWidth(false);
         position['left'] = 'auto';
       }
 
@@ -188,7 +188,7 @@
         position[configs.fulcrumY] = offset.top - $window.scrollTop();
         position['bottom'] = 'auto';
       } else {
-        position[configs.fulcrumY] = $window.height() + $window.scrollTop() - offset.top - selectors.container.outerHeight();
+        position[configs.fulcrumY] = $window.height() + $window.scrollTop() - offset.top - selectors.container.outerHeight(false);
         position['top'] = 'auto';
       }
       return position;
