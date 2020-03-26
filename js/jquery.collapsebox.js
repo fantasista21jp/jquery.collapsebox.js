@@ -49,7 +49,13 @@
         };
     if (!selectors.container.length || !selectors.button.length || !selectors.handle.length || !selectors.parent.length) return;
     // Todo: BODY直下の要素でないとバグる
-    if (selectors.parent.context.nodeName.toUpperCase() != 'BODY') return;
+    var nodeName;
+    if (typeof selectors.parent.context === 'undefined') {
+        nodeName = selectors.parent[0].nodeName.toUpperCase();
+    } else {
+        nodeName = selectors.parent.context.nodeName.toUpperCase();
+    }
+    if (nodeName !== 'BODY') return;
 
     var open_height = 0,
         close_height = 0,
